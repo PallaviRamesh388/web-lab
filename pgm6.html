@@ -1,0 +1,24 @@
+<?php
+$fp=fopen("counter.txt"."r");
+$count=fread($handle,16);
+fclose($handle);
+$handle=fopen("visitors.txt","w") or die("unable to open file");
+fwrite($handle,++$count);
+fclose($handle);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>6 visitor count</title>
+	<style>
+		h1 h2 {
+			text-align: center;
+		}
+</style>
+</head>
+<body>
+	<h1>Welcome to the website</h1>
+	<h2>total visitors so for:<?php echo $count ?></h2>
+</body>
+</html>
